@@ -12,6 +12,8 @@
                 ]
             }
         }
+        ,
+    "32bit": {}
     },
     "checkver": {
         "github": "https://github.com/containers/podman-compose"
