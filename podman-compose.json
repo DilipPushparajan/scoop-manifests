@@ -1,15 +1,19 @@
 {
-    "version": "latest",
-    "description": "A docker-compose implementation for Podman.",
+    "version": "1.0.8",
+    "description": "A script to run docker-compose.yml using podman.",
     "homepage": "https://github.com/containers/podman-compose",
     "license": "GPL-2.0-or-later",
-    "depends": "python",
-    "installer": {
-        "script": [
-            "pip install podman-compose"
-        ]
-    },
-    "checkver": {
-        "github": "https://github.com/containers/podman-compose"
-    }
+    "depends": [
+        "python"
+    ],
+    "installer": [
+        {
+            "script": "pip install podman-compose"
+        }
+    ],
+    "uninstaller": [
+        {
+            "script": "pip uninstall podman-compose -y"
+        }
+    ]
 }
