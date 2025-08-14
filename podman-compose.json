@@ -11,9 +11,14 @@
                     "pip install podman-compose"
                 ]
             }
+        },
+        "32bit": {
+            "installer": {
+                "script": [
+                    "pip install podman-compose"
+                ]
+            }
         }
-        ,
-    "32bit": {}
     },
     "checkver": {
         "github": "https://github.com/containers/podman-compose"
