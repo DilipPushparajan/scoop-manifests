@@ -4,21 +4,10 @@
     "homepage": "https://github.com/containers/podman-compose",
     "license": "GPL-2.0-or-later",
     "depends": "python",
-    "architecture": {
-        "64bit": {
-            "installer": {
-                "script": [
-                    "pip install podman-compose"
-                ]
-            }
-        },
-        "32bit": {
-            "installer": {
-                "script": [
-                    "pip install podman-compose"
-                ]
-            }
-        }
+    "installer": {
+        "script": [
+            "pip install podman-compose"
+        ]
     },
     "checkver": {
         "github": "https://github.com/containers/podman-compose"
