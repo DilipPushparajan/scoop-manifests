@@ -1,19 +1,30 @@
 {
-    "version": "1.0.8",
+    "version": "1.5.0",
     "description": "A script to run docker-compose.yml using podman.",
     "homepage": "https://github.com/containers/podman-compose",
-    "license": "GPL-2.0-or-later",
-    "depends": [
-        "python"
+    "license": "MIT",
+    "url": "https://files.pythonhosted.org/packages/24/91/b168a685ca6813ff9b467d76a7365a099aec16a1032b6edf39b0cd19f6c3/podman_compose-1.5.0.tar.gz",
+    "hash": "sha256:5cc09362852711ce5d27648e41cb5fd058ea5a75acbcdec2f8d0b0c114a18e8e",
+    "depends": "python",
+    "installer": {
+        "script": "python -m pip install --no-warn-script-location --target \"$dir\\lib\" \"$dir\\$fname\""
+    },
+    "post_install": [
+        "if (Test-Path \"$dir\\lib\\Scripts\\podman-compose.exe\") {",
+        "    Copy-Item \"$dir\\lib\\Scripts\\podman-compose.exe\" \"$dir\\podman-compose.exe\" -Force",
+        "} elseif (Test-Path \"$dir\\lib\\Scripts\\podman-compose\") {",
+        "    Copy-Item \"$dir\\lib\\Scripts\\podman-compose\" \"$dir\\podman-compose\" -Force",
+        "}"
     ],
-    "installer": [
-        {
-            "script": "pip install podman-compose"
-        }
-    ],
-    "uninstaller": [
-        {
-            "script": "pip uninstall podman-compose -y"
-        }
-    ]
+    "uninstaller": {
+        "script": "python -m pip uninstall -y podman-compose"
+    },
+    "bin": "podman-compose",
+    "checkver": {
+        "url": "https://pypi.org/pypi/podman-compose/json",
+        "jsonpath": "$.info.version"
+    },
+    "autoupdate": {
+        "url": "https://files.pythonhosted.org/packages/source/p/podman-compose/podman_compose-$version.tar.gz"
+    }
 }
